@@ -1,7 +1,6 @@
 "use client"
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { FaWhatsapp } from "react-icons/fa";
 import { LuCheck, LuSnowflake, LuStar } from "react-icons/lu";
 import { useInView } from "react-intersection-observer";
 import Snowfall from "react-snowfall";
@@ -12,9 +11,12 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { LuArrowLeft, LuArrowRight } from "react-icons/lu";
+import { useState } from "react";
+import { Header } from "../components/header";
 
 export default function Home() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <>
@@ -41,48 +43,13 @@ export default function Home() {
           autoPlay
           loop
           muted
+          playsInline
         ></video>
 
 
         {/* Conteúdo sobreposto */}
-        <header className="relative z-10 py-4 bg-black/50">
-          <div className="flex flex-row justify-center items-center container mx-auto max-w-7xl px-4">
-            <div className="flex flex-col justify-center items-center gap-2">
-              <Image src="/logo.png" alt="Logo" width={300} height={100} />
-              <h1 className="text-4xl font-bold text-[0px] text-white">SkiPlanet</h1>
+        <Header />
 
-            </div>
-
-            {/* Menu de navegação */}
-            <nav className="w-full">
-              <ul className="flex flex-row justify-center items-center gap-4 text-lg text-white">
-                <li className="hover:text-red-700 transition duration-300">
-                  <a href="#home">Início</a>
-                </li>
-                <li className="hover:text-red-700 transition duration-300">
-                  <a href="#sobre">Sobre</a>
-                </li>
-                <li className="hover:text-red-700 transition duration-300">
-                  <a href="#precos">Nossa História</a>
-                </li>
-                <li className="hover:text-red-700 transition duration-300">
-                  <a href="#contato">Portifolio</a>
-                </li>
-              </ul>
-            </nav>
-
-            {/* Botão de WhatsApp */}
-            <div className="w-[450px] flex flex-row justify-center items-center gap-3">
-              <span className="text-1xl font-bold text-white">
-                Agende já sua Visita
-              </span>
-              <a href="">
-                <FaWhatsapp size={50} className="text-white" />
-              </a>
-            </div>
-          </div>
-
-        </header>
         <h2 className="text-5xl font-extrabold text-center text-white zindex-10 absolute mt-5 w-full">
           Maior parque de neve do Brasil
         </h2>
@@ -137,8 +104,58 @@ export default function Home() {
           bgImage="/banner_compress-2.jpg"
           strength={300} // Controla a intensidade do efeito de parallax
           bgImageStyle={{ objectFit: "cover", }} // Garante que a imagem cubra o espaço
-         
+
         >
+          <div className=" flex justify-center items-center text-center">
+
+
+            {/* Botão para abrir o modal */}
+            <div className="flex justify-center items-center py-10">
+              <button
+                onClick={() => setIsModalOpen(true)}
+                className="text-blue-500 underline hover:text-blue-700"
+              >
+                Clique aqui e assista ao vídeo
+              </button>
+            </div>
+
+            {/* Modal */}
+            {isModalOpen && (
+              <div className="fixed inset-0 z-50 flex justify-center items-center bg-black bg-opacity-75">
+                <div className="relative w-full max-w-4xl bg-white rounded-lg shadow-lg p-4">
+                  {/* Botão para fechar o modal */}
+                  <button
+                    onClick={() => setIsModalOpen(false)}
+                    className="absolute top-2 right-2 text-gray-500 hover:text-gray-700 text-2xl"
+                  >
+                    ✖
+                  </button>
+
+                  {/* Vídeo com estilo inline para manter proporção */}
+                  <div style={{ position: "relative", paddingBottom: "56.25%", height: 0 }}>
+                    <iframe
+                      src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                      title="Vídeo"
+                      style={{
+                        position: "absolute",
+                        top: 0,
+                        left: 0,
+                        width: "100%",
+                        height: "100%",
+                        borderRadius: "0.5rem",
+                      }}
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    ></iframe>
+                  </div>
+                </div>
+              </div>
+            )}
+
+
+
+          </div>
           <div className="h-[700px] flex justify-center items-center text-center">
             <div className="relative z-10 text-white">
               <h2 className="text-5xl font-bold">SkiPlanet</h2>
@@ -168,82 +185,82 @@ export default function Home() {
           </div>
 
           <section className="">
-          <div className="relative container mx-auto max-w-7xl px-4 py-10">
+            <div className="relative container mx-auto max-w-7xl px-4 py-10">
 
-            <h1 className="text-4xl my-5 text-blue-400">O maior parque de neve indoor da América Latina: a principal atração do Ski Planet</h1>
+              <h1 className="text-4xl my-5 text-blue-400">O maior parque de neve indoor da América Latina: a principal atração do Ski Planet</h1>
 
-            <Swiper
-              slidesPerView={3}
-              spaceBetween={15}
-              modules={[Navigation, Pagination, Autoplay]}
-              navigation={{ nextEl: ".custom-next", prevEl: ".custom-prev" }}
-              pagination={{ clickable: true }}
-              autoplay={{ delay: 3000 }}
-              loop
-              className=""
-            >
-              <SwiperSlide >
-                <article className="flex flex-col justify-center items-center gap-2">
-                  <Image
-                    src="/esportes-na-neve_compress.jpg"
-                    alt="Imagem do parque"
-                    width={400}
-                    height={300}
-                    className="rounded-lg shadow-lg"
-                  />
-                  <h2 className="text-2xl font-bold text-white">Esportes na Neve</h2>
-                  <p className="text-white">
-                    Pista ampla para esqui e snowboard
-                  </p>
-                </article>
-              </SwiperSlide>
-              <SwiperSlide >
-                <article className="flex flex-col justify-center items-center gap-2">
-                  <Image
-                    src="/lazer-e-entretenimento_compress.jpg"
-                    alt="Imagem do parque"
-                    width={400}
-                    height={300}
-                    className="rounded-lg shadow-lg"
-                  />
-                  <h2 className="text-2xl font-bold text-white">Lazer e Entretenimento</h2>
-                  <p className="text-white">
-                    Atividades interativas e atrações temáticas para todas as idades
-                  </p>
-                </article>
-              </SwiperSlide>
-              <SwiperSlide >
-                <article className="flex flex-col justify-center items-center gap-2">
-                  <Image
-                    src="/gastronomia-tematica_compress.jpg"
-                    alt="Imagem do parque"
-                    width={400}
-                    height={300}
-                    className="rounded-lg shadow-lg"
-                  />
-                  <h2 className="text-2xl font-bold text-white">Gastronomia Temática</h2>
-                  <p className="text-white">
-                    Experiências culinárias imersivas
-                  </p>
-                </article>
-              </SwiperSlide>
+              <Swiper
+                slidesPerView={3}
+                spaceBetween={15}
+                modules={[Navigation, Pagination, Autoplay]}
+                navigation={{ nextEl: ".custom-next", prevEl: ".custom-prev" }}
+                pagination={{ clickable: true }}
+                autoplay={{ delay: 3000 }}
+                loop
+                className=""
+              >
+                <SwiperSlide >
+                  <article className="flex flex-col justify-center items-center gap-2">
+                    <Image
+                      src="/esportes-na-neve_compress.jpg"
+                      alt="Imagem do parque"
+                      width={400}
+                      height={300}
+                      className="rounded-lg shadow-lg"
+                    />
+                    <h2 className="text-2xl font-bold text-white">Esportes na Neve</h2>
+                    <p className="text-white">
+                      Pista ampla para esqui e snowboard
+                    </p>
+                  </article>
+                </SwiperSlide>
+                <SwiperSlide >
+                  <article className="flex flex-col justify-center items-center gap-2">
+                    <Image
+                      src="/lazer-e-entretenimento_compress.jpg"
+                      alt="Imagem do parque"
+                      width={400}
+                      height={300}
+                      className="rounded-lg shadow-lg"
+                    />
+                    <h2 className="text-2xl font-bold text-white">Lazer e Entretenimento</h2>
+                    <p className="text-white">
+                      Atividades interativas e atrações temáticas para todas as idades
+                    </p>
+                  </article>
+                </SwiperSlide>
+                <SwiperSlide >
+                  <article className="flex flex-col justify-center items-center gap-2">
+                    <Image
+                      src="/gastronomia-tematica_compress.jpg"
+                      alt="Imagem do parque"
+                      width={400}
+                      height={300}
+                      className="rounded-lg shadow-lg"
+                    />
+                    <h2 className="text-2xl font-bold text-white">Gastronomia Temática</h2>
+                    <p className="text-white">
+                      Experiências culinárias imersivas
+                    </p>
+                  </article>
+                </SwiperSlide>
 
-            </Swiper>
+              </Swiper>
 
-            <button className=" ml-[-60px]  custom-prev absolute left-2 top-1/2 transform -translate-y-1/2 bg-gray-800 dark:bg-gray-300 text-white dark:text-black p-3 rounded-full shadow-lg z-10">
-              <LuArrowLeft />
-            </button>
-            <button className="mr-[-60px] custom-next absolute right-2 top-1/2 transform -translate-y-1/2 bg-gray-800 dark:bg-gray-300 text-white dark:text-black p-3 rounded-full shadow-lg z-10">
-              <LuArrowRight />
-            </button>
+              <button className=" ml-[-60px]  custom-prev absolute left-2 top-1/2 transform -translate-y-1/2 bg-gray-800 dark:bg-gray-300 text-white dark:text-black p-3 rounded-full shadow-lg z-10">
+                <LuArrowLeft />
+              </button>
+              <button className="mr-[-60px] custom-next absolute right-2 top-1/2 transform -translate-y-1/2 bg-gray-800 dark:bg-gray-300 text-white dark:text-black p-3 rounded-full shadow-lg z-10">
+                <LuArrowRight />
+              </button>
 
-          </div>
-        </section>
+            </div>
+          </section>
 
         </Parallax>
 
         {/* //Carrossel */}
-        
+
 
 
 
