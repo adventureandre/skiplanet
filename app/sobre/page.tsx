@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useInView } from "react-intersection-observer";
 import Snowfall from "react-snowfall";
 import { Header } from "../components/header";
+import { motion } from "framer-motion";
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -95,17 +96,24 @@ export default function Sobre() {
           </AccordionItem>
         </Accordion>
 
-        <section className="bg-[#66c3e1] w-full rounded-sm py-10 text-center text-white mt-20">
-  <h2 className="text-2xl md:text-3xl font-bold mb-4">
-    Um projeto inédito no Brasil, que combina neve, luxo e exclusividade em um só destino.
-  </h2>
-  <p className="text-white text-base mb-6">
-    Seja um dos primeiros a conhecê-lo.
-  </p>
-  <button className="bg-[#003366] hover:bg-[#00264d] text-white font-semibold py-2 px-6 rounded transition">
-    QUERO SABER MAIS
-  </button>
-</section>
+        {/* Seção com animação */}
+        <motion.section
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="bg-[#66c3e1] w-full rounded-sm py-10 text-center text-white mt-20"
+        >
+          <h2 className="text-2xl md:text-3xl font-bold mb-4">
+            Um projeto inédito no Brasil, que combina neve, luxo e exclusividade em um só destino.
+          </h2>
+          <p className="text-white text-base mb-6">
+            Seja um dos primeiros a conhecê-lo.
+          </p>
+          <button className="bg-[#003366] hover:bg-[#00264d] text-white font-semibold py-2 px-6 rounded transition">
+            QUERO SABER MAIS
+          </button>
+        </motion.section>
       </main>
     </>
   );
