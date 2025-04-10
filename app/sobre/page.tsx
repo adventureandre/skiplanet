@@ -39,7 +39,7 @@ export default function Sobre() {
       {/* Fundo com imagem + overlay escuro */}
       <div
         className="fixed top-0 left-0 w-full h-full -z-10 bg-cover bg-center opacity-80"
-        style={{ backgroundImage: "url('/carrossel-2-4_compress.jpg')" }}
+        style={{ backgroundImage: "url('/carrossel-6_compress.jpg')" }}
       />
       <div className="fixed top-0 left-0 w-full h-full -z-10 bg-black/60" />
 
