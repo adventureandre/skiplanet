@@ -30,8 +30,8 @@ export const Header = () => {
         <nav className="hidden md:flex items-center gap-6 text-white text-lg">
           <Link href="/" className="hover:text-red-700 transition">Início</Link>
           <Link href="/sobre" className="hover:text-red-700 transition">Sobre</Link>
-          <Link href="#precos" className="hover:text-red-700 transition">Nossa História</Link>
-          <Link href="#contato" className="hover:text-red-700 transition">Portfólio</Link>
+          <Link href="/contato" className="hover:text-red-700 transition">Contato</Link>
+          <Link href="#portifolio" className="hover:text-red-700 transition">Portfólio</Link>
         </nav>
 
         {/* Botão WhatsApp */}
@@ -49,8 +49,8 @@ export const Header = () => {
           <nav className="flex flex-col gap-4 text-white text-lg">
             <Link href="/" className="hover:text-red-700 transition">Início</Link>
             <Link  href="/sobre" className="hover:text-red-700 transition">Sobre</Link>
-            <Link href="#precos" className="hover:text-red-700 transition">Nossa História</Link>
-            <Link href="#contato" className="hover:text-red-700 transition">Portfólio</Link>
+            <Link href="/contato" className="hover:text-red-700 transition">Contato</Link>
+            <Link href="#portifolio" className="hover:text-red-700 transition">Portfólio</Link>
           </nav>
           <div className="mt-4 flex items-center gap-3">
             <span className="text-white font-bold">Agende já sua Visita</span>
