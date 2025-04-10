@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
 import { useInView } from "react-intersection-observer";
 import Snowfall from "react-snowfall";
 import { Header } from "../components/header";
