@@ -4,6 +4,7 @@ import Image from "next/image"
 import { FaWhatsapp } from "react-icons/fa"
 import { useState } from "react"
 import { LuMenu, LuX } from "react-icons/lu"
+import Link from "next/link"
 
 export const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -27,18 +28,18 @@ export const Header = () => {
 
         {/* Menu Desktop */}
         <nav className="hidden md:flex items-center gap-6 text-white text-lg">
-          <a href="#home" className="hover:text-red-700 transition">Início</a>
-          <a href="#sobre" className="hover:text-red-700 transition">Sobre</a>
-          <a href="#precos" className="hover:text-red-700 transition">Nossa História</a>
-          <a href="#contato" className="hover:text-red-700 transition">Portfólio</a>
+          <Link href="/" className="hover:text-red-700 transition">Início</Link>
+          <Link href="/sobre" className="hover:text-red-700 transition">Sobre</Link>
+          <Link href="#precos" className="hover:text-red-700 transition">Nossa História</Link>
+          <Link href="#contato" className="hover:text-red-700 transition">Portfólio</Link>
         </nav>
 
         {/* Botão WhatsApp */}
         <div className="hidden md:flex items-center gap-3">
           <span className="text-white font-bold">Agende já sua Visita</span>
-          <a href="#">
+          <Link href="#">
             <FaWhatsapp size={32} className="text-white" />
-          </a>
+          </Link>
         </div>
       </div>
 
@@ -46,16 +47,16 @@ export const Header = () => {
       {menuOpen && (
         <div className="md:hidden bg-black/90 px-6 py-4">
           <nav className="flex flex-col gap-4 text-white text-lg">
-            <a href="#home" className="hover:text-red-700 transition">Início</a>
-            <a href="#sobre" className="hover:text-red-700 transition">Sobre</a>
-            <a href="#precos" className="hover:text-red-700 transition">Nossa História</a>
-            <a href="#contato" className="hover:text-red-700 transition">Portfólio</a>
+            <Link href="/" className="hover:text-red-700 transition">Início</Link>
+            <Link  href="/sobre" className="hover:text-red-700 transition">Sobre</Link>
+            <Link href="#precos" className="hover:text-red-700 transition">Nossa História</Link>
+            <Link href="#contato" className="hover:text-red-700 transition">Portfólio</Link>
           </nav>
           <div className="mt-4 flex items-center gap-3">
             <span className="text-white font-bold">Agende já sua Visita</span>
-            <a href="#">
+            <Link href="#">
               <FaWhatsapp size={32} className="text-white" />
-            </a>
+            </Link>
           </div>
         </div>
       )}

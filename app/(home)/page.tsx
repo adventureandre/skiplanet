@@ -174,7 +174,7 @@ export default function Home() {
                 }}
                 spaceBetween={15}
                 modules={[Navigation, Pagination, Autoplay]}
-                navigation={{ nextEl: ".custom-next", prevEl: ".custom-prev" }}
+                navigation={{ nextEl: ".custom-next-1", prevEl: ".custom-prev-1" }}
                 pagination={{ clickable: true }}
                 autoplay={{ delay: 3000 }}
                 loop
@@ -227,10 +227,10 @@ export default function Home() {
                 </SwiperSlide>
               </Swiper>
 
-              <button className="hidden md:flex ml-[-60px] custom-prev absolute left-2 top-1/2 transform -translate-y-1/2 bg-gray-800 dark:bg-gray-300 text-white dark:text-black p-3 rounded-full shadow-lg z-10">
+              <button className="custom-prev-1 hidden md:flex ml-[-60px]  absolute left-2 top-1/2 transform -translate-y-1/2 bg-gray-800 dark:bg-gray-300 text-white dark:text-black p-3 rounded-full shadow-lg z-10">
                 <LuArrowLeft />
               </button>
-              <button className="hidden md:flex mr-[-60px] custom-next absolute right-2 top-1/2 transform -translate-y-1/2 bg-gray-800 dark:bg-gray-300 text-white dark:text-black p-3 rounded-full shadow-lg z-10">
+              <button className="custom-next-1 hidden md:flex mr-[-60px]  absolute right-2 top-1/2 transform -translate-y-1/2 bg-gray-800 dark:bg-gray-300 text-white dark:text-black p-3 rounded-full shadow-lg z-10">
                 <LuArrowRight />
               </button>
             </div>
