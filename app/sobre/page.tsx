@@ -19,7 +19,6 @@ import {
 
 export default function Sobre() {
   const { ref } = useInView({ triggerOnce: true, threshold: 0.2 });
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <>
